@@ -1,17 +1,19 @@
 import React from 'react';
 
 import { useGetInsights } from '../hooks';
+import { Summary, CheckInHistory, Spinner } from '../components';
 
-const Spinner = () => (
-  <div className='spinner-border' role='status'>
-    <span className='sr-only'>Loading...</span>
-  </div>
-);
-
-const Insights = () => {
+const Insights: React.FC = () => {
   const { insights, loading } = useGetInsights();
 
-  return loading ? <Spinner /> : <h2>{insights}</h2>;
+  return !loading ? (
+    <div>
+      <Summary insights={insights} />
+      <CheckInHistory insights={insights} />
+    </div>
+  ) : (
+    <Spinner />
+  );
 };
 
 export default Insights;

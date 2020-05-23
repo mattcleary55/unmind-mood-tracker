@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { TCheckInHistory } from '.../../../types';
+
 export default () => {
-  const [insights, setInsights] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [insights, setInsights] = useState<TCheckInHistory>([]);
+  const [loading, setLoading] = useState<Boolean>(true);
 
   useEffect((): void => {
     (async (): Promise<void> => {

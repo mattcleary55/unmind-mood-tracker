@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CheckIn = () => {
+const CheckIn: React.FC = () => {
   const classes = useStyles();
 
   return (

@@ -1,6 +1,14 @@
-export {};
-const getInsights = (req, res, next) => {
-  return res.status(200).send('Hola Señor');
-};
+import { Request, Response, Next } from 'express';
+import { TCheckInHistory } from '../../types';
 
-module.exports = { getInsights };
+const checkinHistory = require('../data');
+
+export {};
+
+const getInsights = (
+  req: Request,
+  res: Response,
+  next: Next
+): Response<TCheckInHistory> => res.status(200).send(checkinHistory);
+
+module.exports = getInsights;

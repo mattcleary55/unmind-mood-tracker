@@ -9,22 +9,25 @@ const FeelingDescriptor: React.FC<{ text: String }> = ({
   text: String;
 }) => <p>{text}</p>;
 
-const CheckIn: React.FC<{ insight: ICheckIn }> = ({
-  insight,
+const CheckIn: React.FC<{ checkIn: ICheckIn }> = ({
+  checkIn,
 }: {
-  insight: ICheckIn;
+  checkIn: ICheckIn;
 }) => {
+  const { moodRating, time, comment, feelingDescriptions } = checkIn;
   return (
     <div>
-      <p>{insight.moodRating}/10</p>
+      <p>{moodRating}/10</p>
 
-      <p>{moment(insight.time).format('DD/MM/YY')}</p>
+      <p>{moment(time).format('DD/MM/YY')}</p>
 
       <div>
-        {insight.feelingDescriptions.map((description) => (
+        {feelingDescriptions.map((description) => (
           <FeelingDescriptor text={description} />
         ))}
       </div>
+
+      <p>{comment}</p>
     </div>
   );
 };

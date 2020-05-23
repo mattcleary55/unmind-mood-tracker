@@ -14,22 +14,22 @@ import { TCheckInHistory, ICheckIn } from '.../../../types';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 
-const CheckInHistory: React.FC<{ insights: TCheckInHistory }> = ({
-  insights,
+const CheckInHistory: React.FC<{ checkInHistory: TCheckInHistory }> = ({
+  checkInHistory,
 }: {
-  insights: TCheckInHistory;
+  checkInHistory: TCheckInHistory;
 }) => (
   <Accordion allowZeroExpanded>
-    {insights.map((insight: ICheckIn) => (
+    {checkInHistory.map((checkIn: ICheckIn) => (
       <AccordionItem>
         <AccordionItemHeading>
           <AccordionItemButton>
-            {moment(insight.time).format('DD/MM/YY')}
+            {moment(checkIn.time).format('DD/MM/YY')}
           </AccordionItemButton>
         </AccordionItemHeading>
 
         <AccordionItemPanel>
-          <CheckIn insight={insight} />
+          <CheckIn checkIn={checkIn} />
         </AccordionItemPanel>
       </AccordionItem>
     ))}

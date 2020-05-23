@@ -5,10 +5,13 @@ const checkinHistory = require('../data');
 
 export {};
 
-const getInsights = (
+const logCheckIn = (
   req: Request,
   res: Response,
   next: Next
-): Response<TCheckInHistory> => res.status(200).send(checkinHistory);
+): Response<TCheckInHistory> => {
+  checkinHistory.push(req.body); // pretty trusting!
+  return res.status(200).send(checkinHistory);
+};
 
-module.exports = getInsights;
+module.exports = logCheckIn;

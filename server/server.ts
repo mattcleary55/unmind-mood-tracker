@@ -1,13 +1,17 @@
 const express = require('express');
-const path = require('path');
+const bodyParser = require('body-parser');
 
-const getInsights = require('./endpoints/getInsights');
+const getCheckInHistory = require('./endpoints/getCheckInHistory');
+const logCheckIn = require('./endpoints/logCheckIn');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'build')));
+// parse application/json
+app.use(bodyParser.json());
 
-app.get('/insights', getInsights);
+app.get('/api/checkin', getCheckInHistory);
+
+app.post('/api/checkin', logCheckIn);
 
 app.listen(process.env.PORT || 8080, (): void =>
   console.log(`Server listening on port: ${process.env.PORT || 8080}`)

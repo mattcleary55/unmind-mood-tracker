@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { CheckIn, Insights } from './pages';
+import { CheckIn, CheckInHistory } from './pages';
 import { NavigationBar } from './components/NavBar';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
         <Switch>
           <Route path='/insights'>
-            <Insights />
+            <CheckInHistory />
           </Route>
           <Route path='/'>
             <CheckIn />

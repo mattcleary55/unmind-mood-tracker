@@ -1,1 +1,1 @@
-export { default as useGetInsights } from './useGetInsights';
+export { default as useGetCheckInHistory } from './useGetCheckInHistory';

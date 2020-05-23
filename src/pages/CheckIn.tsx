@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CheckIn: React.FC = () => {
+const CheckInPage: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -29,4 +29,4 @@ const CheckIn: React.FC = () => {
   );
 };
 
-export default CheckIn;
+export default CheckInPage;

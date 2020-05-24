@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import { getCheckInHistory } from '../api';
 
 import { TCheckInHistory } from '.../../../types';
 
@@ -9,7 +10,7 @@ export default () => {
 
   useEffect((): void => {
     (async (): Promise<void> => {
-      let { data } = await axios(`http://localhost:3000/api/checkin`);
+      const data = await getCheckInHistory();
       setCheckInHistory(data);
       setLoading(false);
       // Ideally we'd want to wrap this in a try/catch in case this fails

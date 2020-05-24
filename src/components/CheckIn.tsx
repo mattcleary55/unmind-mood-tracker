@@ -22,8 +22,8 @@ const CheckIn: React.FC<{ checkIn: ICheckIn }> = ({
       <p>{moment(time).format('DD/MM/YY')}</p>
 
       <div>
-        {feelingDescriptions.map((description) => (
-          <FeelingDescriptor text={description} />
+        {feelingDescriptions.map((description: string, index: number) => (
+          <FeelingDescriptor text={description} key={index} />
         ))}
       </div>
 

@@ -12,9 +12,10 @@ const Summary: React.FC<{ checkInHistory: TCheckInHistory }> = ({
     checkInHistory.length;
 
   return (
-    <div>
-      <h1>Total checkins: {checkInHistory.length}</h1>
-      <h1>Average mood rating: {averageMoodRating.toFixed(1)}/10</h1>
+    <div style={{ marginBottom: 50 }}>
+      <h2>Average mood rating: {averageMoodRating.toFixed(1)}/10</h2>
+
+      <h3>Based on {checkInHistory.length} total check-ins</h3>
     </div>
   );
 };

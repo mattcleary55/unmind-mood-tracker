@@ -11,9 +11,10 @@ function App() {
         <NavigationBar />
 
         <Switch>
-          <Route path='/insights'>
+          <Route path='/checkin-history'>
             <CheckInHistory />
           </Route>
+
           <Route path='/'>
             <CheckIn />
           </Route>

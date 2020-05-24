@@ -20,8 +20,8 @@ const CheckInHistory: React.FC<{ checkInHistory: TCheckInHistory }> = ({
   checkInHistory: TCheckInHistory;
 }) => (
   <Accordion allowZeroExpanded>
-    {checkInHistory.map((checkIn: ICheckIn) => (
-      <AccordionItem>
+    {checkInHistory.map((checkIn: ICheckIn, index: number) => (
+      <AccordionItem key={index}>
         <AccordionItemHeading>
           <AccordionItemButton>
             {moment(checkIn.time).format('DD/MM/YY')}

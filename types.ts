@@ -1,7 +1,9 @@
 export interface ICheckIn {
   moodRating: number;
-  feelingDescriptions: ReadonlyArray<string>;
-  time: Date;
+  feelingDescriptions: ReadonlyArray<
+    'depressed' | 'happy' | 'optimistic' | 'bored'
+  >;
+  time: number;
   comment: string;
 }
 

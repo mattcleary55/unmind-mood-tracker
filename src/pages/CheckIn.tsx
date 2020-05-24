@@ -1,32 +1,83 @@
-import React from 'react';
-import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import 'rc-slider/assets/index.css';
+import React, { useState } from 'react';
+import { TextField, Button } from '@material-ui/core';
+import Slider from 'rc-slider';
+import { withRouter } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+import { logCheckInHistory } from '../api';
 
-const CheckInPage: React.FC = () => {
-  const classes = useStyles();
+type TFeelingDescriptions = {
+  depressed: boolean;
+  optimistic: boolean;
+  bored: boolean;
+  happy: boolean;
+};
+
+const CheckInPage: React.FC = (props: any) => {
+  const [commentText, setCommentText] = useState<string>('');
+  const [moodRating, setMoodRating] = useState<number>(3);
+  const [feelingDescriptions, setFeelingDescriptions] = useState<
+    TFeelingDescriptions
+  >({ depressed: false, optimistic: false, bored: false, happy: false });
+
+  console.log(commentText);
+  console.log(moodRating);
+
+  const wrapperStyle = { width: 400, margin: 50 };
 
   return (
     <div>
-      <h2>How are you feeling?</h2>
+      <div style={wrapperStyle}>
+        <h2>How are you feeling?</h2>
+      </div>
 
-      <form className={classes.root} noValidate autoComplete='off'>
+      <div style={wrapperStyle}>
+        <p>How would you rate your current mood?</p>
+        <Slider
+          min={1}
+          max={7}
+          defaultValue={3}
+          value={moodRating}
+          onChange={(value: number): void => setMoodRating(value)}
+        />
+        <p>Mood rating: {moodRating}</p>
+      </div>
+
+      <div style={wrapperStyle}>
+        <p>Which of the following describe your current mood?</p>
+
+        <button>Depressed</button>
+
+        <button>Optimistic</button>
+
+        <button>Bored</button>
+
+        <button>Happy</button>
+      </div>
+
+      <div style={wrapperStyle}>
+        <p>Any other comments?</p>
+
         <TextField
           id='outlined-basic'
-          label='Leave a comment'
-          variant='outlined'
+          value={commentText}
+          onChange={(event): void => setCommentText(event.target.value)}
         />
-      </form>
+      </div>
+
+      <div style={wrapperStyle}>
+        <Button
+          variant='outlined'
+          onClick={async () => {
+            await logCheckInHistory();
+            props.history.push('/checkin-history');
+          }}
+        >
+          Log Check-In
+        </Button>
+      </div>
     </div>
   );
 };
 
-export default CheckInPage;
+export default withRouter(CheckInPage);

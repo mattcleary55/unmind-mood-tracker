@@ -1,13 +1,26 @@
 import React from 'react';
+
 import {
   CurrentMoodSlider,
   FeelingSelector,
   OptionalCommentField,
   SubmitCheckInButton,
 } from '../components';
+import {
+  useMoodRating,
+  useCommentText,
+  useFeelingDescriptions,
+} from '../hooks';
 
 const CheckInPage: React.FC = () => {
   const wrapperStyle = { width: 400, margin: 50 };
+
+  const { moodRating, setMoodRating } = useMoodRating();
+  const { commentText, setCommentText } = useCommentText();
+  const {
+    feelingDescriptions,
+    setFeelingDescriptions,
+  } = useFeelingDescriptions();
 
   return (
     <div>
@@ -15,13 +28,26 @@ const CheckInPage: React.FC = () => {
         <h2>How are you feeling?</h2>
       </div>
 
-      <CurrentMoodSlider />
+      <CurrentMoodSlider
+        moodRating={moodRating}
+        setMoodRating={setMoodRating}
+      />
 
-      <FeelingSelector />
+      <FeelingSelector
+        feelingDescriptions={feelingDescriptions}
+        setFeelingDescriptions={setFeelingDescriptions}
+      />
 
-      <OptionalCommentField />
+      <OptionalCommentField
+        commentText={commentText}
+        setCommentText={setCommentText}
+      />
 
-      <SubmitCheckInButton />
+      <SubmitCheckInButton
+        moodRating={moodRating}
+        commentText={commentText}
+        feelingDescriptions={feelingDescriptions}
+      />
     </div>
   );
 };

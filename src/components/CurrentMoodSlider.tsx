@@ -2,11 +2,13 @@ import 'rc-slider/assets/index.css';
 import React from 'react';
 import Slider from 'rc-slider';
 
-import { useMoodRating } from '../hooks';
+type Props = {
+  moodRating: number;
+  setMoodRating: (moodRating: number) => number | void;
+};
 
-const CurrentMoodSlider: React.FC = () => {
+const CurrentMoodSlider: React.FC<Props> = ({ moodRating, setMoodRating }) => {
   const wrapperStyle = { width: 400, margin: 50 };
-  const { moodRating, setMoodRating } = useMoodRating();
 
   return (
     <div style={wrapperStyle}>
@@ -20,6 +22,7 @@ const CurrentMoodSlider: React.FC = () => {
         value={moodRating}
         onChange={(value: number): number | void => setMoodRating(value)}
       />
+
       <p>Mood rating: {moodRating}</p>
     </div>
   );

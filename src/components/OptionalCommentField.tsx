@@ -1,12 +1,16 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
 
-import { useCommentText } from '../hooks';
+type Props = {
+  commentText: string;
+  setCommentText: (text: string) => string | void;
+};
 
-const OptionalCommentField: React.FC = () => {
+const OptionalCommentField: React.FC<Props> = ({
+  commentText,
+  setCommentText,
+}) => {
   const wrapperStyle = { width: 400, margin: 50 };
-
-  const { setCommentText, commentText } = useCommentText();
 
   return (
     <div style={wrapperStyle}>

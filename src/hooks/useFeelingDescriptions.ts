@@ -10,7 +10,7 @@ const useFeelingDescriptions = (): {
 } => {
   const [feelingDescriptions, setFeelingDescriptions] = useState<
     TFeelingDescriptions
-  >({ depressed: false, optimistic: false, bored: false, happy: false });
+  >({ Depressed: false, Optimistic: false, Bored: false, Happy: false });
   return { feelingDescriptions, setFeelingDescriptions };
 };
 

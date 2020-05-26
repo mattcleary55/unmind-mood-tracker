@@ -1,24 +1,21 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import { withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { logCheckInHistory } from '../api';
-import {
-  useMoodRating,
-  useCommentText,
-  useFeelingDescriptions,
-} from '../hooks';
 
 import { TFeelingDescriptions } from '../types';
 import { ICheckIn } from '../../types';
 
-const SubmitCheckInButton: React.FC = (props: any) => {
+type Props = {
+  moodRating: number;
+  commentText: string;
+  feelingDescriptions: TFeelingDescriptions;
+};
+
+const SubmitCheckInButton: React.FC<RouteComponentProps & Props> = (props) => {
   const wrapperStyle = { width: 400, margin: 50 };
-
-  const { moodRating } = useMoodRating();
-  const { commentText } = useCommentText();
-  const { feelingDescriptions } = useFeelingDescriptions();
-
+  const { moodRating, commentText, feelingDescriptions, history } = props;
   return (
     <div style={wrapperStyle}>
       <Button
@@ -27,7 +24,7 @@ const SubmitCheckInButton: React.FC = (props: any) => {
           await logCheckInHistory(
             formatCheckInData(moodRating, commentText, feelingDescriptions)
           );
-          props.history.push('/checkin-history');
+          history.push('/checkin-history');
         }}
       >
         Log Check-In
@@ -46,6 +43,7 @@ const formatCheckInData = (
     if (value) feelingDescriptions.push(key);
   });
 
+  console.log('commentText is: ', comment);
   return {
     moodRating,
     time: Date.now(),

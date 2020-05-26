@@ -20,6 +20,7 @@ const CheckInHistory: React.FC<{ checkInHistory: TCheckInHistory }> = ({
   checkInHistory: TCheckInHistory;
 }) => {
   const latestEntryUUID = '63931684-9f47-11ea-bb37-0242ac130002';
+
   return (
     <Accordion allowZeroExpanded preExpanded={[latestEntryUUID]}>
       {checkInHistory.map((checkIn: ICheckIn, index: number) => (

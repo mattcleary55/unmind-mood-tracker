@@ -17,7 +17,7 @@ const OptionalCommentField: React.FC = () => {
       <TextField
         id='outlined-basic'
         value={commentText}
-        onChange={(event): void => setCommentText(event.target.value)}
+        onChange={(event): string | void => setCommentText(event.target.value)}
       />
     </div>
   );

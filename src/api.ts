@@ -1,21 +1,19 @@
 import axios from 'axios';
 
-import { TCheckInHistory, ICheckIn } from '.../../../types';
+import { TCheckInHistory, ICheckIn } from '../types';
+
+const localServerEndpoint = 'http://localhost:3000/api/checkin';
 
 export const getCheckInHistory = async (): Promise<TCheckInHistory> => {
-  const { data } = await axios(`http://localhost:3000/api/checkin`);
+  const { data } = await axios(localServerEndpoint);
   return data;
 };
 
-export const logCheckInHistory = async (): Promise<void> => {
-  const body = {
-    moodRating: 5,
-    feelingDescriptions: ['bored'],
-    time: Date.now(),
-    comment: 'Fine, I guess',
-  };
+export const logCheckInHistory = async (
+  checkInData: ICheckIn
+): Promise<void> => {
   try {
-    await axios.post(`http://localhost:3000/api/checkin`, body);
+    await axios.post(localServerEndpoint, checkInData);
   } catch (e) {}
   return;
 };

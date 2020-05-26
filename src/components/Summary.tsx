@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TCheckInHistory, ICheckIn } from '.../../../types';
+import { TCheckInHistory, ICheckIn } from '../../types';
 
 const Summary: React.FC<{ checkInHistory: TCheckInHistory }> = ({
   checkInHistory,

@@ -18,7 +18,7 @@ const CurrentMoodSlider: React.FC = () => {
         max={7}
         defaultValue={3}
         value={moodRating}
-        onChange={(value: number): void => setMoodRating(value)}
+        onChange={(value: number): number | void => setMoodRating(value)}
       />
       <p>Mood rating: {moodRating}</p>
     </div>

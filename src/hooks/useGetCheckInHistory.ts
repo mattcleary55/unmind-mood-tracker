@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 
 import { getCheckInHistory } from '../api';
 
-import { TCheckInHistory } from '.../../../types';
+import { TCheckInHistory } from '../../types';
 
-export default () => {
+export default (): {
+  checkInHistory: TCheckInHistory;
+  loading: boolean;
+} => {
   const [checkInHistory, setCheckInHistory] = useState<TCheckInHistory>([]);
-  const [loading, setLoading] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect((): void => {
     (async (): Promise<void> => {

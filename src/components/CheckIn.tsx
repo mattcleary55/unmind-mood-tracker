@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import { ICheckIn } from '.../../../types';
+import { ICheckIn } from '../../types';
 
 const FeelingDescriptor: React.FC<{ text: String }> = ({
   text,

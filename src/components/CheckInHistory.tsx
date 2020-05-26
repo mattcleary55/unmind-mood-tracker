@@ -10,7 +10,7 @@ import {
 
 import CheckIn from './CheckIn';
 
-import { TCheckInHistory, ICheckIn } from '.../../../types';
+import { TCheckInHistory, ICheckIn } from '../../types';
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 

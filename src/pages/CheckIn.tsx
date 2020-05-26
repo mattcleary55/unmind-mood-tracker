@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   CurrentMoodSlider,
   FeelingSelector,
@@ -6,18 +6,7 @@ import {
   SubmitCheckInButton,
 } from '../components';
 
-type TFeelingDescriptions = {
-  depressed: boolean;
-  optimistic: boolean;
-  bored: boolean;
-  happy: boolean;
-};
-
 const CheckInPage: React.FC = () => {
-  const [feelingDescriptions, setFeelingDescriptions] = useState<
-    TFeelingDescriptions
-  >({ depressed: false, optimistic: false, bored: false, happy: false });
-
   const wrapperStyle = { width: 400, margin: 50 };
 
   return (

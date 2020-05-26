@@ -11,11 +11,11 @@ const CheckInHistoryPage: React.FC = () => {
   return (
     <div style={wrapperStyle}>
       {!loading ? (
-        <React.Fragment>
+        <>
           <Summary checkInHistory={checkInHistory} />
 
           <CheckInHistory checkInHistory={checkInHistory} />
-        </React.Fragment>
+        </>
       ) : (
         <Spinner />
       )}

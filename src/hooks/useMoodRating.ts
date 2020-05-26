@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-const useMoodRating = () => {
+const useMoodRating = (): {
+  moodRating: number;
+  setMoodRating: (rating: number) => number | void;
+} => {
   const [moodRating, setMoodRating] = useState<number>(3);
   return { moodRating, setMoodRating };
 };

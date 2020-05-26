@@ -32,7 +32,9 @@ const CheckInPage: React.FC = (props: any) => {
       </div>
 
       <div style={wrapperStyle}>
-        <p>How would you rate your current mood?</p>
+        <p>
+          <b>Step 1:</b> How would you rate your current mood?
+        </p>
         <Slider
           min={1}
           max={7}
@@ -44,7 +46,9 @@ const CheckInPage: React.FC = (props: any) => {
       </div>
 
       <div style={wrapperStyle}>
-        <p>Which of the following describe your current mood?</p>
+        <p>
+          <b>Step 2:</b> Which of the following describe your current mood?
+        </p>
 
         <button>Depressed</button>
 
@@ -56,7 +60,9 @@ const CheckInPage: React.FC = (props: any) => {
       </div>
 
       <div style={wrapperStyle}>
-        <p>Any other comments?</p>
+        <p>
+          <b>Step 3:</b> Any other comments?
+        </p>
 
         <TextField
           id='outlined-basic'

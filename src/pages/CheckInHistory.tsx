@@ -8,14 +8,18 @@ const CheckInHistoryPage: React.FC = () => {
 
   const wrapperStyle = { margin: 50 };
 
-  return !loading ? (
+  return (
     <div style={wrapperStyle}>
-      <Summary checkInHistory={checkInHistory} />
+      {!loading ? (
+        <React.Fragment>
+          <Summary checkInHistory={checkInHistory} />
 
-      <CheckInHistory checkInHistory={checkInHistory} />
+          <CheckInHistory checkInHistory={checkInHistory} />
+        </React.Fragment>
+      ) : (
+        <Spinner />
+      )}
     </div>
-  ) : (
-    <Spinner />
   );
 };
 

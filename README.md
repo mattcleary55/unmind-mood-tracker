@@ -37,7 +37,7 @@ Several assumptions were made to speed up development such as:
 1. There'd be no authorization or authentication for this application. User sessions will also not be tracked.
 2. Users are allowed to submit more than one entry per day.
 
-#### How could this be improved? Where trade-offs were made?
+#### How could this be improved? What trade-offs were made?
 
 ##### Client: #####
 
@@ -51,12 +51,16 @@ Several assumptions were made to speed up development such as:
 
 1. The biggest tradeoff in this project is the lack of a persistent data store. Currently for mood insights page, it is simply reading off of an array of objects. When a user logs a new check-in, it just adds to the list. In production I'd use a persistent database such as PostgreSQL. Redis could be used as an in-house caching layer for repeat requests.
 2. As mentioned above, no auth or user session tracking has been added.
+3. Though the server structure is incredibly basic, due to the simple functionality of this app, this made the most sense.
+4. There's currently no data validation for when users are posting new checkins. This is of course unacceptable for a production applicatoin.
 
 ##### Both: #####
 
 1. Improve error handling. Right now, there is no error handling for the client or server. If the API requests fail, the error is neither caught nor handled. Either a fail whale or at least an alert bar should flash to the user, asking them to 'pull to refresh' or similar.
-2. Add a suite of tests. This is unlikely to be necessary due to the simplicity of this application, but down the line, Jest and Enzyme may be good options. The React Hooks should be tested at least.
-3. Wire up to a CI pipeline such as CircleCI for linting, type checking, automated test suites and deployment to staging/production environments.
+2. Add a suite of tests using something such as ***Jest*** or ***Mocha***. For the backend, I'd want to test the routes, at an application level, with a tool such as **supertest**. I'd want to check that the right responses are coming back for the main request types. Due to the simple nature of the API, it's unlikely that anything more comprehensive would be particularly valuable. As the server grows in size and functionality, I'd want to break things down, layer by layer and write various unit and integration tests. By breaking things up, I'd be able to write tests in isolation by simply mocking out modules using a tool such as ***Sinon***.
+3. For the front-end, I'd want to definitely test the Hooks and api layer. Tests could also be written for each component to ensure they receive the correct propers and that their clickHandlers function correectly etc. This could also test the integration of the React Hooks.
+4. Wire up to a CI pipeline such as CircleCI for linting, type checking, automated test suites and deployment to staging/production environments.
+5. Optimising the build for production and deploying to a service such as AWS or Heroku. I would have liked to have done this but ran out of time.
 
 
 #### What were some challenges?

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button } from 'react-bootstrap';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { logCheckInHistory } from '../api';
@@ -19,7 +19,8 @@ const SubmitCheckInButton: React.FC<RouteComponentProps & Props> = (props) => {
   return (
     <div style={wrapperStyle}>
       <Button
-        variant='outlined'
+        variant='info'
+        size='lg'
         onClick={async (): Promise<void> => {
           await logCheckInHistory(
             formatCheckInData(moodRating, commentText, feelingDescriptions)
@@ -39,11 +40,12 @@ const formatCheckInData = (
   feelingDescriptionsMap: TFeelingDescriptions
 ): ICheckIn => {
   const feelingDescriptions: string[] = [];
-  Object.entries(feelingDescriptionsMap).forEach(([key, value]): void => {
-    if (value) feelingDescriptions.push(key);
-  });
+  Object.entries(feelingDescriptionsMap).forEach(
+    ([key, value]: [string, boolean]): void => {
+      if (value) feelingDescriptions.push(key);
+    }
+  );
 
-  console.log('commentText is: ', comment);
   return {
     moodRating,
     time: Date.now(),

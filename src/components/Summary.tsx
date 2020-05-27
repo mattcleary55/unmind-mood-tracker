@@ -15,7 +15,9 @@ const Summary: React.FC<{ checkInHistory: TCheckInHistory }> = ({
     <div style={{ marginBottom: 50 }}>
       <h2>Average mood rating: {averageMoodRating.toFixed(1)}/10</h2>
 
-      <h3>Based on {checkInHistory.length} total check-ins</h3>
+      <h3 style={{ color: '#17a2b8' }}>
+        Based on {checkInHistory.length} total check-ins
+      </h3>
     </div>
   );
 };

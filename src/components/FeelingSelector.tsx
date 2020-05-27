@@ -31,11 +31,10 @@ const FeelingSelector: React.FC<Props> = (props) => {
 
       <ButtonGroup>
         {feelings.map((feeling: Feeling, index: number) => (
-          <div style={{ margin: 5 }}>
+          <div style={{ margin: 5 }} key={index}>
             <Button
-              key={index}
               value={feeling}
-              variant={feelingDescriptions[feeling] ? 'primary' : 'secondary'}
+              variant={feelingDescriptions[feeling] ? 'info' : 'outline-info'}
               onClick={() => toggleSelection(feeling)}
             >
               {feeling}

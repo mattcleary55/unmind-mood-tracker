@@ -1,20 +1,20 @@
 const checkIn1 = {
   moodRating: 7,
-  feelingDescriptions: ['happy', 'curious'],
+  feelingDescriptions: ['Happy', 'Curious'],
   time: Date.now(),
   comment: 'Today I enjoyed spending time with my family',
 };
 
 const checkIn2 = {
   moodRating: 5,
-  feelingDescriptions: ['bored'],
+  feelingDescriptions: ['Bored'],
   time: Date.now(),
   comment: 'Today was boring',
 };
 
 const checkIn3 = {
   moodRating: 2,
-  feelingDescriptions: ['depressed', 'sad'],
+  feelingDescriptions: ['Depressed', 'Sad'],
   time: Date.now(),
   comment: 'Today was rough',
 };

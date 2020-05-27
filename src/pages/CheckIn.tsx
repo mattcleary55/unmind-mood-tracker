@@ -25,7 +25,9 @@ const CheckInPage: React.FC = () => {
   return (
     <div>
       <div style={wrapperStyle}>
-        <h2>How are you feeling?</h2>
+        <h2>
+          <b>How are you feeling?</b>
+        </h2>
       </div>
 
       <CurrentMoodSlider

@@ -15,11 +15,15 @@ const CurrentMoodSlider: React.FC<Props> = ({ moodRating, setMoodRating }) => {
       <p>
         <b>Step 1:</b> How would you rate your current mood?
       </p>
+
       <Slider
-        min={1}
+        min={0}
         max={7}
-        defaultValue={3}
+        step={0.5}
+        defaultValue={3.5}
         value={moodRating}
+        trackStyle={{ backgroundColor: '#17a2b8' }}
+        handleStyle={{ backgroundColor: '#17a2b8' }}
         onChange={(value: number): number | void => setMoodRating(value)}
       />
 

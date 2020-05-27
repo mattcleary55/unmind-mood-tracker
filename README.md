@@ -42,19 +42,24 @@ Several assumptions were made to speed up development such as:
 ##### Client: #####
 
 1. Add Unmind's logo, fonts, and generally improve UI.
-2. Wire up to a CI pipeline such as CircleCI.
-3. Improve the types. As mentioned below, this is my first time using TypeScript with React. I've needed to declare a few types as `any`. This needs to be improved.
-4. Many style best-practices have been ignored for speed, whether 
+2. Improve the types. As mentioned below, this is my first time using TypeScript with React. I've needed to declare a few types as `any`. This needs to be improved.
+3. Many style best-practices have been ignored for speed, whether using in-line styles or repeating code. Ideally I'd use something like *styled-components* in production.
+4. As mentioned, an overreliance of tools such as *material-ui* and *react-bootstrap*.
+5. UI has not written to follow accesibility guidelines, for responsiveness or particularly for performance.
 
 ##### Server: #####
+
+1. The biggest tradeoff in this project is the lack of a persistent data store. Currently for mood insights page, it is simply reading off of an array of objects. When a user logs a new check-in, it just adds to the list. In production I'd use a persistent database such as PostgreSQL. Redis could be used as an in-house caching layer for repeat requests.
+2. As mentioned above, no auth or user session tracking has been added.
 
 ##### Both: #####
 
 1. Improve error handling. Right now, there is no error handling for the client or server. If the API requests fail, the error is neither caught nor handled. Either a fail whale or at least an alert bar should flash to the user, asking them to 'pull to refresh' or similar.
 2. Add a suite of tests. This is unlikely to be necessary due to the simplicity of this application, but down the line, Jest and Enzyme may be good options. The React Hooks should be tested at least.
+3. Wire up to a CI pipeline such as CircleCI for linting, type checking, automated test suites and deployment to staging/production environments.
+
 
 #### What were some challenges?
 
 - Though I've used FlowJS heavily for a couple of years. TypeScript is something I've recently started using due to Flock (my current company) decided to migrate to it. It's been a great decision, but this is the first time I've used it with React Native. Up until now, I'd only used FlowJS on RN and TypeScript on the backend. It took me a while to brush up on the syntax.
 - This is my first time writing React Hooks. I've long been a fan and heavy user of Redux. This is my first time playing with hooks. I very much enjoyed this. Powerful stuff.
-- React Navigation has also changed _a lot_ since I last used it. So it took me a little while to get the hang of the new API.

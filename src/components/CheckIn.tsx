@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { primaryColor } from '../config';
 import { ICheckIn } from '../../types';
 
 const FeelingDescriptor: React.FC<{ text: String }> = ({
@@ -7,28 +8,8 @@ const FeelingDescriptor: React.FC<{ text: String }> = ({
 }: {
   text: String;
 }) => (
-  <div
-    style={{
-      display: 'inline-block',
-      margin: '0 5px',
-      borderColor: '#17a2b8',
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderRadius: '0.25rem',
-      padding: '0.375rem 0.75rem',
-      maxWidth: 100,
-      textAlign: 'center',
-      verticalAlign: 'middle',
-    }}
-  >
-    <p
-      style={{
-        color: '#17a2b8',
-        margin: 0,
-      }}
-    >
-      {text}
-    </p>
+  <div style={styles.feelingContainerStyle}>
+    <p style={styles.feelingTextStyle}>{text}</p>
   </div>
 );
 
@@ -42,13 +23,16 @@ const CheckIn: React.FC<{ checkIn: ICheckIn }> = ({
     <div>
       <p>
         <b>Mood rating:</b>
+
         <br />
-        <b style={{ color: '#17a2b8' }}>{moodRating}/10</b>
+
+        <b style={{ color: primaryColor }}>{moodRating}/10</b>
       </p>
 
       <div>
         <b>Feelings: </b>
-        <div style={{ margin: '10px 0px 20px 0px' }}>
+
+        <div style={styles.feelingListStyle}>
           {feelingDescriptions.map((description: string, index: number) => (
             <FeelingDescriptor text={description} key={index} />
           ))}
@@ -63,4 +47,22 @@ const CheckIn: React.FC<{ checkIn: ICheckIn }> = ({
   );
 };
 
+const styles = {
+  feelingListStyle: { margin: '10px 0px 20px 0px' },
+  feelingContainerStyle: {
+    display: 'inline-block',
+    margin: '0 5px',
+    borderColor: primaryColor,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderRadius: '0.25rem',
+    padding: '0.375rem 0.75rem',
+    maxWidth: 100,
+    verticalAlign: 'middle',
+  },
+  feelingTextStyle: {
+    color: primaryColor,
+    margin: 0,
+  },
+};
 export default CheckIn;

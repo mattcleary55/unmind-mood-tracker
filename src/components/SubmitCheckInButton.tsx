@@ -16,7 +16,9 @@ type Props = {
 
 const SubmitCheckInButton: React.FC<RouteComponentProps & Props> = (props) => {
   const wrapperStyle = { width: 400, margin: 50 };
+
   const { moodRating, commentText, feelingDescriptions, history } = props;
+
   return (
     <div style={wrapperStyle}>
       <Button

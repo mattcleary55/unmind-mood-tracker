@@ -51,7 +51,7 @@ const styles = {
   feelingListStyle: { margin: '10px 0px 20px 0px' },
   feelingContainerStyle: {
     display: 'inline-block',
-    margin: '0 5px',
+    margin: '5px 5px',
     borderColor: primaryColor,
     borderWidth: 1,
     borderStyle: 'solid',

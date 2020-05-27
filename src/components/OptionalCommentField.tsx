@@ -8,14 +8,6 @@ type Props = {
   classes: any;
 };
 
-const styles = {
-  root: {
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#17a2b8',
-    },
-  },
-};
-
 const OptionalCommentField: React.FC<Props> = ({
   commentText,
   setCommentText,
@@ -38,6 +30,14 @@ const OptionalCommentField: React.FC<Props> = ({
       />
     </div>
   );
+};
+
+const styles = {
+  root: {
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#17a2b8',
+    },
+  },
 };
 
 export default withStyles(styles)(OptionalCommentField);

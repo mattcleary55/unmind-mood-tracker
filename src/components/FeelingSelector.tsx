@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-import { TFeelingDescriptions } from '../types';
+import { feelingsList } from '../config';
+
+import { TFeelingDescriptions, Feeling } from '../../types';
 
 type Props = {
   feelingDescriptions: TFeelingDescriptions;
@@ -9,26 +11,6 @@ type Props = {
     feelingDescriptions: TFeelingDescriptions
   ) => TFeelingDescriptions | void;
 };
-
-type Feeling =
-  | 'Depressed'
-  | 'Happy'
-  | 'Optimistic'
-  | 'Bored'
-  | 'Hopeful'
-  | 'Frustrated'
-  | 'Lonely'
-  | 'Excited';
-const feelings: Feeling[] = [
-  'Depressed',
-  'Optimistic',
-  'Bored',
-  'Happy',
-  'Hopeful',
-  'Frustrated',
-  'Lonely',
-  'Excited',
-];
 
 const FeelingSelector: React.FC<Props> = (props) => {
   const wrapperStyle = { width: 400, margin: 50 };
@@ -47,7 +29,7 @@ const FeelingSelector: React.FC<Props> = (props) => {
       </p>
 
       <ButtonGroup style={{ flexWrap: 'wrap' }}>
-        {feelings.map((feeling: Feeling, index: number) => (
+        {feelingsList.map((feeling: Feeling, index: number) => (
           <div style={{ margin: 5 }} key={index}>
             <Button
               value={feeling}

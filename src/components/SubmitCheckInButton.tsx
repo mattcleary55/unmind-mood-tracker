@@ -5,8 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { logCheckInHistory } from '../api';
 
-import { TFeelingDescriptions } from '../types';
-import { ICheckIn } from '../../types';
+import { ICheckIn, TFeelingDescriptions } from '../../types';
 
 type Props = {
   moodRating: number;

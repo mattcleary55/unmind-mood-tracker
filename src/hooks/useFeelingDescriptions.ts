@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-import { TFeelingDescriptions } from '../types';
+import { initialFeelingsState } from '../config';
+
+import { TFeelingDescriptions } from '../../types';
 
 const useFeelingDescriptions = (): {
   feelingDescriptions: TFeelingDescriptions;
@@ -10,16 +12,7 @@ const useFeelingDescriptions = (): {
 } => {
   const [feelingDescriptions, setFeelingDescriptions] = useState<
     TFeelingDescriptions
-  >({
-    Depressed: false,
-    Optimistic: false,
-    Bored: false,
-    Happy: false,
-    Hopeful: false,
-    Frustrated: false,
-    Lonely: false,
-    Excited: false,
-  });
+  >(initialFeelingsState);
   return { feelingDescriptions, setFeelingDescriptions };
 };
 

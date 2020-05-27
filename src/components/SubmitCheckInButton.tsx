@@ -27,7 +27,7 @@ const SubmitCheckInButton: React.FC<RouteComponentProps & Props> = (props) => {
           await logCheckInHistory(
             formatCheckInData(moodRating, commentText, feelingDescriptions)
           );
-          history.push('/checkin-history');
+          history.push('/mood-insights');
         }}
       >
         Log Check-In

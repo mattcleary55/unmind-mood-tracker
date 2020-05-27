@@ -3,7 +3,7 @@ import React from 'react';
 import { useGetCheckInHistory } from '../hooks';
 import { Summary, CheckInHistory, Spinner } from '../components';
 
-const CheckInHistoryPage: React.FC = () => {
+const MoodInsightsPage: React.FC = () => {
   const { checkInHistory, loading } = useGetCheckInHistory();
 
   const wrapperStyle = { margin: 50 };
@@ -23,4 +23,4 @@ const CheckInHistoryPage: React.FC = () => {
   );
 };
 
-export default CheckInHistoryPage;
+export default MoodInsightsPage;

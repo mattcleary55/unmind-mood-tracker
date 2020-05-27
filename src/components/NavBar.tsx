@@ -6,7 +6,7 @@ export const NavigationBar: React.FC = () => (
     <Nav className='mr-auto'>
       <Nav.Link href='/'>Check In</Nav.Link>
 
-      <Nav.Link href='/checkin-history'>Check-in History</Nav.Link>
+      <Nav.Link href='/mood-insights'>Mood Insights</Nav.Link>
     </Nav>
   </Navbar>
 );

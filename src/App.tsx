@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { CheckIn, CheckInHistory } from './pages';
+import { CheckIn, MoodInsights } from './pages';
 import { NavigationBar } from './components/NavBar';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
         <NavigationBar />
 
         <Switch>
-          <Route path='/checkin-history'>
-            <CheckInHistory />
+          <Route path='/mood-insights'>
+            <MoodInsights />
           </Route>
 
           <Route path='/'>

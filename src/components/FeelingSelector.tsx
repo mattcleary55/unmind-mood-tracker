@@ -10,8 +10,25 @@ type Props = {
   ) => TFeelingDescriptions | void;
 };
 
-type Feeling = 'Depressed' | 'Happy' | 'Optimistic' | 'Bored';
-const feelings: Feeling[] = ['Depressed', 'Optimistic', 'Bored', 'Happy'];
+type Feeling =
+  | 'Depressed'
+  | 'Happy'
+  | 'Optimistic'
+  | 'Bored'
+  | 'Hopeful'
+  | 'Frustrated'
+  | 'Lonely'
+  | 'Excited';
+const feelings: Feeling[] = [
+  'Depressed',
+  'Optimistic',
+  'Bored',
+  'Happy',
+  'Hopeful',
+  'Frustrated',
+  'Lonely',
+  'Excited',
+];
 
 const FeelingSelector: React.FC<Props> = (props) => {
   const wrapperStyle = { width: 400, margin: 50 };
@@ -29,7 +46,7 @@ const FeelingSelector: React.FC<Props> = (props) => {
         <b>Step 2:</b> Which of the following describe your current mood?
       </p>
 
-      <ButtonGroup>
+      <ButtonGroup style={{ flexWrap: 'wrap' }}>
         {feelings.map((feeling: Feeling, index: number) => (
           <div style={{ margin: 5 }} key={index}>
             <Button

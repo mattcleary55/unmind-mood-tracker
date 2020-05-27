@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 
 import { ICheckIn } from '../../types';
 
@@ -38,11 +37,13 @@ const CheckIn: React.FC<{ checkIn: ICheckIn }> = ({
 }: {
   checkIn: ICheckIn;
 }) => {
-  const { moodRating, time, comment, feelingDescriptions } = checkIn;
+  const { moodRating, comment, feelingDescriptions } = checkIn;
   return (
     <div>
       <p>
-        <b>Mood rating:</b> {moodRating}/10
+        <b>Mood rating:</b>
+        <br />
+        <b style={{ color: '#17a2b8' }}>{moodRating}/10</b>
       </p>
 
       <div>

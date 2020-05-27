@@ -32,7 +32,7 @@ const CheckInHistory: React.FC<{ checkInHistory: TCheckInHistory }> = ({
           >
             <AccordionItemHeading>
               <AccordionItemButton>
-                {moment(checkIn.time).format('DD/MM/YY')}
+                {moment(checkIn.time).format('MMM Do - HH:mm')}
               </AccordionItemButton>
             </AccordionItemHeading>
 

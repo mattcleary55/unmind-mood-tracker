@@ -12,7 +12,6 @@ export const getCheckInHistory = async (): Promise<TCheckInHistory> => {
 export const logCheckInHistory = async (
   checkInData: ICheckIn
 ): Promise<void> => {
-  console.log(checkInData);
   try {
     await axios.post(localServerEndpoint, checkInData);
   } catch (e) {}

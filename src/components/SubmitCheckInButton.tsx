@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import moment from 'moment';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { logCheckInHistory } from '../api';
@@ -48,7 +49,7 @@ const formatCheckInData = (
 
   return {
     moodRating,
-    time: Date.now(),
+    time: moment().valueOf(),
     comment,
     feelingDescriptions,
   };

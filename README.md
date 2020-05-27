@@ -1,7 +1,7 @@
 # Unmind Mood Tracker
 
 <a href="https://ibb.co/frFBygK"><img width="400" src="https://i.ibb.co/F83Nyrf/Screenshot-2020-05-27-at-20-33-29.png" alt="Screenshot-2020-05-27-at-20-33-29" border="0"></a>
-<a href="https://ibb.co/mX8CWtf"><img width="400" src="https://i.ibb.co/xfHSTGx/Screenshot-2020-05-27-at-20-34-00.png" alt="Screenshot-2020-05-27-at-20-34-00" border="0"></a>
+<a href="https://ibb.co/VpjVrJK"><img width="400" src="https://i.ibb.co/dJWB1jh/Screenshot-2020-05-27-at-20-34-00.png" alt="Screenshot-2020-05-27-at-20-34-00" border="0"></a>
 
 #### What is this?
 

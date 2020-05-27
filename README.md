@@ -7,9 +7,9 @@
 
 A simple React web app with a Node/ExpressJS backend. Both written in TypeScript.
 
-There are two pages, 'Check In' and 'Check-in History'.
+There are two pages, *Check In* and *Mood Insights*.
 
-On the 'Check In' page, the user is able to log their mood. They're able to view a history of their checkins on the 'Check-In History' page.
+On the 'Check In' page, the user is able to log their mood. They're able to view a history of their checkins on the *Mood Insights* page.
 
 #### How do I run it?
 
@@ -24,25 +24,34 @@ This project is not currently optimised for a production employment.
 
 #### What tools were chosen, and why?
 
-- **Expo** has been chosen to build the app. It's incredibly quick to get up and going and manages all the plumbing of React Native behind the scenes. It's a good choice for a lot of production applications as long as they don't rely on cutting edge device-specific hardware.
-- **TypeScript** been used instead of Vanilla JavaScript. Listing the benefits of TypeScript and typed languages, in general, is beyond the scope of this project.
-- **React Native Paper** has been used as a UI library. This was done to save time for a quick project like this, but ultimately, due to the simple nature of the UI I went with, it probably slowed me down. In production, I'd rely on libraries such as this much less.
-- **React Navigation** has been used as the navigation library. It's widely respected, is well maintained and supported. Relatively easy to work with and enables a lot of customization.
+- **Create-React-App** has been chosen as a starter kit. It allowed me to get up and running quickly without having to deal with webpack for hot-reloading etc.
+- **TypeScript** been used instead of Vanilla JavaScript. Listing the benefits of TypeScript and typed languages, in general, is beyond the scope of this project. I've used FlowJS extensively for a couple of years now but I've only recently began learning the nuances of TypeScript.
+- **React Bootstrap and Material UI** have been used as UI libraries. Typically I'd rely on these much less and certainly would try to avoid using both. For the purposes of this project it was a quick way of using some controlled components so that I could get them to work well with React Hooks.
+
+Several other packages have been used such as **rc-slider** and **react-accessible-accordion** for UI components and **react-router-dom** for routing.
 
 #### What assumptions were made?
 
 Several assumptions were made to speed up development such as:
 
-1. The `test-recipes` would always return a list of recipes.
-2. Other developers are happy to work with Expo...though ejecting is always an option.
+1. There'd be no authorization or authentication for this application. User sessions will also not be tracked.
+2. Users are allowed to submit more than one entry per day.
 
-#### How could this be improved?
+#### How could this be improved? Where trade-offs were made?
 
-1. Add SecondNature's logo, fonts, and generally improve UI.
+##### Client: #####
+
+1. Add Unmind's logo, fonts, and generally improve UI.
 2. Wire up to a CI pipeline such as CircleCI.
-3. Add unit tests. This is unlikely to be necessary due to the simplicity of this application, but down the line, Jest and Enzyme may be good options. The React Hooks should be tested at least.
-4. Improve error handling. Right now, if the `test-recipes` API request, fails, the error is neither caught nor handled. Either a fail whale or at least an alert bar should flash to the user, asking them to 'pull to refresh' or similar.
-5. Improve the types. As mentioned below, this is my first time using TypeScript with React Native and React Navigation. I've had to declare the navigation types as `any`. This needs to be improved.
+3. Improve the types. As mentioned below, this is my first time using TypeScript with React. I've needed to declare a few types as `any`. This needs to be improved.
+4. Many style best-practices have been ignored for speed, whether 
+
+##### Server: #####
+
+##### Both: #####
+
+1. Improve error handling. Right now, there is no error handling for the client or server. If the API requests fail, the error is neither caught nor handled. Either a fail whale or at least an alert bar should flash to the user, asking them to 'pull to refresh' or similar.
+2. Add a suite of tests. This is unlikely to be necessary due to the simplicity of this application, but down the line, Jest and Enzyme may be good options. The React Hooks should be tested at least.
 
 #### What were some challenges?
 
